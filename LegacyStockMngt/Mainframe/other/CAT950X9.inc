@@ -1,0 +1,10 @@
+XMODE=TO                                                                00001   
+REMLU=FTPY2K63                                                          00002   
+REQNAME=CAT950X9                                                        00003   
+REQUEUE=NO                                                              00010   
+RESTART=NO                                                              00011   
+RFILEID='APL2PFTR.C063.OUTACAT.TRAN.CNFY2K'                             00008   
+RFTYPE=PS                                                               00009   
+RTDISP=OLD                                                              00007   
+SFILEID='BY99.C063.OUTACAT.TRAN.CNF.Y2KOUT'                             00004   
+SFTYPE=PS                                                               00005   

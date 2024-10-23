@@ -1,0 +1,24 @@
+//CAT8740L JOB (BL0P,DY00),'ACAT: SET FAILS',CLASS=1,MSGCLASS=W,                
+//         SCHENV=STREAML,                                                      
+//         USER=BL0P,                                                           
+//  SECLABEL=BISG                                                               
+//*                                                                             
+//*NODAFF BALANCE1                            REQUIRED FOR PROD ONLY            
+//*JOBAFF BALANCE1                            REQUIRED FOR PROD ONLY            
+//*                                                                             
+//CA11STEP EXEC CA11                                                            
+//*                                                                             
+//STEP10  EXEC CAT874,                                                          
+//             CLNT=LLL,                                                        
+//             HNB=BLLL,                                                        
+//             DB2SYS='DB2PROD.GROUP',    *DB2 SYSTEM DB2PROD/DB2TEST *         
+//             DB2SYS1='DB2PROD.GROUP'    *DB2 SYSTEM DB2PROD/DB2TEST *         
+//CAT874.STEPLIB   DD DSN=&RUNDATE.ADP.DATELIB,                                 
+//             DISP=SHR                                                         
+//          DD DSN=DBSYS.CAF.LOADLIB,                                           
+//             DISP=SHR                                                         
+//          DD DSN=&DB2SYS..SDSNEXIT,                                           
+//             DISP=SHR                                                         
+//          DD DSN=&DB2SYS1..SDSNLOAD,                                          
+//             DISP=SHR                                                         
+//*                                                                             

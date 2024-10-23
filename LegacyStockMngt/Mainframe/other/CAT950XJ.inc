@@ -1,0 +1,10 @@
+XMODE=TO                                                                00001   
+REMNODE=EDJONES                                                         00002   
+REQNAME=CAT950XJ                                                        00003   
+REQUEUE=NO                                                              00010   
+RESTART=NO                                                              00011   
+RFILEID='APL2PFTR.C063.OUTACAT.TRAN.CNF'                                00008   
+RFTYPE=PS                                                               00009   
+RTDISP=OLD                                                              00007   
+SFILEID='BIOS.C063.OUTACAT.TRAN.CNF'                                    00004   
+SFTYPE=PS                                                               00005   

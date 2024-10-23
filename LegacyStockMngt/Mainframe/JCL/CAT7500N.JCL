@@ -1,0 +1,44 @@
+//CAT7500N JOB (BN1P,DAC0),'ACATS CAGE CREATE',CLASS=5,MSGCLASS=W,              
+//         SCHENV=STREAMN,                                                      
+//        USER=BN1P,                                                            
+//  SECLABEL=BISG                                                               
+//*NODAFF BALANCE5                                                              
+//*JOBAFF BALANCE5                                                              
+//*                                                                             
+//CA11    EXEC CA11,                                                            
+//             RMSPARM=P                                                        
+//*                                                                             
+//*********************************************************************         
+//* EXTRACT ACATS DETAILS FOR CAGE INTERFACE.                                   
+//* THIS IS A NON-UPDATE JOB AND MAY BE RESTARTED/RERAN.                        
+//*********************************************************************         
+//STEP10  EXEC CAT650DB,                                                        
+//             DB2SYS='DB2PROD.GROUP',    *DB2                                  
+//             DB2SYS1='DB2PROD.GROUP',   *DB2                                  
+//             PLAN='ACTBTCH',            *DB2 PLAN CARDLIB MEMBER    *         
+//             HNB='BNNN',                *O/P .CAT650DB.ACATCAGE GDG *         
+//             EXTR=ACATCAGE,             *EXTRACT CAGE DATA                    
+//             STREAM=N,                  *STREAM ID                  *         
+//             RUNDATE=                                                         
+//CAT650DB.STEPLIB   DD                                                         
+//          DD                                                                  
+//          DD DSN=&DB2SYS..SDSNEXIT                                            
+//          DD DSN=&DB2SYS1..SDSNLOAD                                           
+//*                                                                             
+//*********************************************************************         
+//* CREATE CAGE INTERFACE FILES.                                      *         
+//* THIS IS A NON-UPDATE JOB AND MAY BE RESTARTED/RERAN.              *         
+//* THE P2  EXTRACTS ARE DUMMY IN THE RUN; SEE JOB CAT6500N           *         
+//*********************************************************************         
+//*                                                                             
+//STEP20  EXEC CAT750,                                                          
+//             B1FIL='BZZZ.B1FL',                                               
+//             EXTR=ACATCAGE,                                                   
+//             HNB='BNNN',                                                      
+//             HNB1='BZZZ',                                                     
+//             NAV=BNANNN,                                                      
+//             RPTPI=XSTLPI,                                                    
+//             STREAM=N,                                                        
+//             STREAM2=NNN,                                                     
+//             UNIT='BATCH'                                                     
+//CAT650.PSSETTLE DD DSN=&HNB..CAT580SP.POST.STTL(0),DISP=SHR                   

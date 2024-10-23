@@ -1,0 +1,12 @@
+DSN=BLLL.CAT611.NAUPD                                                           
+GDG=00                                                                          
+REQUIRED-DATE=                                                                  
+REQUIRED-TIME=                                                                  
+CREATE-DATE=                                                                    
+CREATE-TIME=                                                                    
+TRAILER-CODE=N                                                                  
+RECSZ=255                                                                       
+STREAM=L                                                                        
+CLIENT1=ALL                                                                     
+CLIENT2=                                                                        
+CLIENT3=                                                                        

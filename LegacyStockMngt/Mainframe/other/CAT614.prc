@@ -1,0 +1,41 @@
+//CAT614  PROC DATECHK=0,                 * 1=BYPASS DATE CHECK       *         
+//             CARDLIB='BISG.CARDLIB',    *DB2 PLAN CARDLIB           *         
+//             DB2SYS='DB2PROD',          *DB2 SYSTEM DB2PROD/DB2TEST *         
+//             DB2SYS1='DB2PROD',       *DB2 DB2PROD/DB2TEST        *           
+//             PLAN='ACTBTCH',            *DB2 PLAN CARDLIB MEMBER    *         
+//             GDGA='GDG,',               *O/P .CAT614.WIRES          *         
+//             GENP1='(+1)',              *I/P .CAT611.WIRES          *         
+//             GENP1A='(+1)',             *O/P .CAT614.WIRES          *         
+//             HNB1='BAAA',               *I/P .CAT611.WIRES      GDG *         
+//             HNB2='BAAA',               *O/P .CAT614.WIRES      GDG *         
+//             REGSIZE=8M,                                                      
+//             RUNDATE=,                                                        
+//             SPACE='(CYL,(10,10),RLSE)', *O/P .CAT614.WIRES GDG *             
+//             UNIT='BATCH'                                                     
+//*                                                                             
+//CAT614  EXEC PGM=CAT614,                                                      
+//             PARM='&DATECHK',                                                 
+//             REGION=&REGSIZE                                                  
+//STEPLIB   DD DSN=&RUNDATE.ADP.DATELIB,                                        
+//             DISP=SHR                                                         
+//          DD DSN=DBSYS.CAF.LOADLIB,                                           
+//             DISP=SHR                                                         
+//          DD DSN=&DB2SYS..SDSNEXIT,                                           
+//             DISP=SHR                                                         
+//          DD DSN=&DB2SYS1..SDSNLOAD,                                          
+//             DISP=SHR                                                         
+//AFFOPCA   DD DSN=OPCA.AFFCARD,                                                
+//             DISP=SHR                                                         
+//DSNPLAN   DD DSN=&CARDLIB(&PLAN),                                             
+//             DISP=SHR                                                         
+//INFILE   DD  DSN=&HNB1..CAT611.WIRES&GENP1,                                   
+//             DISP=SHR                                                         
+//OUTFILE  DD  DSN=&HNB2..CAT614.WIRES&GENP1A,                                  
+//             DISP=(NEW,CATLG,DELETE),                                         
+//             SPACE=&SPACE,                                                    
+//             UNIT=&UNIT,                                                      
+//             DCB=(&GDGA.DSORG=PS,LRECL=0700,RECFM=FB)                         
+//SYSOUT   DD  SYSOUT=*                                                         
+//SYSPRINT DD  SYSOUT=*                                                         
+//SYSUDUMP DD  SYSOUT=Y                                                         
+//SYSABOUT DD  SYSOUT=Y                                                         

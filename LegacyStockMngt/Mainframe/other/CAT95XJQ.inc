@@ -1,0 +1,10 @@
+XMODE=TO                                                                00001   
+REMNODE=EDJONES                                                         00002   
+REQNAME=CAT95XJQ                                                        00003   
+REQUEUE=NO                                                              00010   
+RESTART=NO                                                              00011   
+RFILEID='APL2DFTR.C063.OUTACAT.TRAN.CNF' DSN TO BE CONFIRMED BY ED JONES00008   
+RFTYPE=PS                                                               00009   
+RTDISP=OLD                                                              00007   
+SFILEID='BQQQ.C063.OUTACAT.TRAN.CNF'                                    00004   
+SFTYPE=PS                                                               00005   

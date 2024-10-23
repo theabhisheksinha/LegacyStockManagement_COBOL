@@ -1,0 +1,1 @@
+STREAM-COUNT=14 STREAMS=ABFHIJLNPRSUXY                      (MAXIMUM=36)        
